@@ -24,7 +24,7 @@ tmux bind-key "$key_binding" display-popup -E -w 80% -h 60% -T ' tmux-session-ma
       --tiebreak=index \
       --preview="tmux list-windows -t {1} -F \"  #{window_index}: #{window_name} #{?window_active,(active),}\"" \
       --preview-window="right:40%:wrap" \
-      --bind="alt-backspace:execute(tmux kill-session -t {1})+reload($cmd)" \
+      --bind="alt-backspace:execute-silent(tmux kill-session -t {1})+reload($cmd)" \
       --bind="alt-enter:execute(tmux new-session -d -s {q} 2>/dev/null && tmux switch-client -t {q})+abort" \
       --info=inline \
       --layout=reverse |
